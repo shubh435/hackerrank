@@ -14,18 +14,18 @@ Explanation: The 8 possible rectangles are
 */
 
 
-const rectanglesInCircle=(r:number)=> {
+const rectanglesInCircle = (r: number) => {
     // your code here
     let count = 0;
-const limit = 2 * r;  
+    const limit = 2 * r;
 
-for (let a = 1; a <= limit; a++) {
-    for (let b = 1; b <= limit; b++) {
-        if ((a * a + b * b) <= (4 * r * r)) {
-            count++;
+    for (let a = 1; a <= limit; a++) {
+        for (let b = 1; b <= limit; b++) {
+            if ((a * a + b * b) <= (4 * r * r)) {
+                count++;
+            }
         }
     }
-}
 
-return count;
+    return count;
 }

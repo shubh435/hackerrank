@@ -1,23 +1,25 @@
 // find the prime in range
 
 function findPrimesInRange(L: number, R: number) {
-    const start=L,num=R;
-         let arr = [];
-  for(let j = start; j <= num; j++) {
-    let isPrime = true;
-    if (j < 2) { 
-      isPrime = false;
+    if (R < 2) return 0; 
+    if (L < 2) L = 2; 
+
+    let isPrime = new Array(R + 1).fill(true);
+
+    for (let p = 2; p * p <= R; p++) {
+        if (isPrime[p] === true) {
+            for (let i = p * p; i <= R; i += p) {
+                isPrime[i] = false;
+            }
+        }
     }
-    const s = Math.sqrt(j); 
-    for(let i = 2; i <= s; i++) { 
-      if(j % i === 0) {
-        isPrime = false;
-        break;
-      }
+
+    let count = 0;
+    for (let i = L; i <= R; i++) {
+        if (isPrime[i] === true) {
+            count++;
+        }
     }
-    if(isPrime) {
-      arr.push(j);
-    }
-  }
-  return arr;
+
+    return count;
 }
