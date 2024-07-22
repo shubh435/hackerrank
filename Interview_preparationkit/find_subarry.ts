@@ -15,28 +15,28 @@ Explanation: There is no subarray with 0 sum
  */
 
 
-const subArrayFind = (arr: Array<number>, sum: number)=>{
+const subArrayFind = (arr: Array<number>, sum: number) => {
 
-    let index1=-1,index2=-1;
-    for(let i=0;i<arr.length;i++){
-        let sum2= 0
-        for(let j =i;j<arr.length;j++){
-        
-        sum2 +=arr[j];
-        if(sum===sum2){
-            index1 = i;
-            index2 = j;
-            break;
+    let index1 = -1, index2 = -1;
+    for (let i = 0; i < arr.length; i++) {
+        let sum2 = 0
+        for (let j = i; j < arr.length; j++) {
+
+            sum2 += arr[j];
+            if (sum === sum2) {
+                index1 = i;
+                index2 = j;
+                break;
+            }
         }
-        }
-        
-        if(index1 !== -1 && index2!==-1){
+
+        if (index1 !== -1 && index2 !== -1) {
             break;
         }
     }
 
-    return index1!==-1 ?{index1:index1+1,index2:index2+1}:-1
+    return index1 !== -1 ? { index1: index1 + 1, index2: index2 + 1 } : -1
 }
 
 
-console.log("answer",subArrayFind([15, 2, 4, 8, 9, 5, 10, 23],23))
+console.log("answer", subArrayFind([15, 2, 4, 8, 9, 5, 10, 23], 23))
