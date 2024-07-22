@@ -22,4 +22,4 @@ for(let i = 0;i<arr2.length;i++ ){
         }
     }
 }
-console.log(arr2,{intersection})
+console.log({union:arr2,intersection})
